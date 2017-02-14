@@ -1,7 +1,5 @@
 package com.chas.api.sms;
 
-import com.alibaba.fastjson.JSONObject;
-
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -33,8 +31,6 @@ public class SMSApi {
     //应用AppKey
     private static final String APP_KEY = "272ca705bc04f0b98a168c9cd018a503";
 
-
-
     /**
      * 发送短信服务
      *
@@ -45,7 +41,7 @@ public class SMSApi {
      * @param method 请求方式
      * @return
      */
-    public static Boolean sendSMS(String mobile, String code, String smsId, String app, String method){
+    public static String sendSMS(String mobile, String code, String smsId, String app, String method){
         String result = null;
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("mobile",mobile);
@@ -54,14 +50,10 @@ public class SMSApi {
         params.put("key",APP_KEY);
         try {
             result = net(REQUEST_URL,params,method);
-            JSONObject object = JSONObject.parseObject(result);
-            if (object.getInteger("error_code") == 0) {
-                return true;
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
+        return result;
     }
 
 
