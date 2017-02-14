@@ -20,10 +20,15 @@
         <module>chas-mapper</module>
 
         <module>chas-web</module>
+        <module>chas-manager</module>
+
     </modules>
 
     <!--集中定义依赖版本号-->
     <properties>
+        <!--子工程版本-->
+        <child-project.version>1.0-SNAPSHOT</child-project.version>
+
         <!--单元测试版本定义-->
         <junit.version>4.1</junit.version>
 
@@ -78,6 +83,34 @@
 
     <dependencyManagement>
         <dependencies>
+            <!--#################### 子工程start #####################-->
+            <dependency>
+                <groupId>com.chas.repository</groupId>
+                <artifactId>common</artifactId>
+                <version>${child-project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.chas.repository</groupId>
+                <artifactId>entity</artifactId>
+                <version>${child-project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.chas.repository</groupId>
+                <artifactId>mapper</artifactId>
+                <version>${child-project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.chas.repository</groupId>
+                <artifactId>service</artifactId>
+                <version>${child-project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.chas.repository</groupId>
+                <artifactId>web</artifactId>
+                <version>${child-project.version}</version>
+            </dependency>
+            <!--#################### 子工程start #####################-->
+
             <!--#################### 单元测试相关包start #####################-->
             <dependency>
                 <groupId>junit</groupId>
