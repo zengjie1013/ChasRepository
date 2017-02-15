@@ -139,15 +139,4 @@ public class QRCode {
         BitMatrix bitMatrix = new MultiFormatWriter().encode(contents,BarcodeFormat.QR_CODE,width,height,hints);
         MatrixToImageWriter.writeToStream(bitMatrix,format,stream);
     }
-
-
-
-//    public static void main(String[] args) {
-//        try {
-//            String s = decode(new File("/Users/chas/Desktop/img.jpg"));
-//            System.out.println(s);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
 }
